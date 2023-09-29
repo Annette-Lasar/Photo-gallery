@@ -1,0 +1,295 @@
+/* ============================================================
+stylesheet for photogallery
+Author: Annette Lasar
+Date: July 2023
+=========================================================== */
+/* ---------------------------------------------------------
+font: inter
+---------------------------------------------------------- */
+/* inter-100 - latin_latin-ext */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100;
+  src: url('../fonts/inter-v12-latin_latin-ext-100.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* inter-200 - latin_latin-ext */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 200;
+  src: url('../fonts/inter-v12-latin_latin-ext-200.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* inter-300 - latin_latin-ext */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300;
+  src: url('../fonts/inter-v12-latin_latin-ext-300.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* inter-regular - latin_latin-ext */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/inter-v12-latin_latin-ext-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* inter-500 - latin_latin-ext */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  src: url('../fonts/inter-v12-latin_latin-ext-500.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* inter-600 - latin_latin-ext */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  src: url('../fonts/inter-v12-latin_latin-ext-600.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* inter-700 - latin_latin-ext */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../fonts/inter-v12-latin_latin-ext-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* inter-800 - latin_latin-ext */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 800;
+  src: url('../fonts/inter-v12-latin_latin-ext-800.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* inter-900 - latin_latin-ext */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 900;
+  src: url('../fonts/inter-v12-latin_latin-ext-900.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* ---------------------------------------------------------
+general styles
+---------------------------------------------------------- */
+:root {
+  --beige: #fbe3bd;
+  --maroon: #78450b;
+  --white: #ffffff;
+  --black: #000000;
+}
+
+html {
+  position: relative;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+body::before {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  opacity: 0.6;
+  background-image: url(../assets/wooden_wall.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+img {
+  max-width: 100%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+main {
+  max-width: 960px;
+  margin: 0 auto 4em;
+}
+
+.dialog-bg {
+  background-color: var(--black);
+  z-index: 2;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.photo-box {
+  max-width: 960px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10vh auto;
+  height: 80vh;
+}
+
+.photo-box figure {
+  height: 100%;
+  width: auto;
+  position: relative;
+}
+
+.photo-box figure img {
+  width: auto;
+  position: relative;
+  object-fit: contain;
+  display: flex;
+  margin: 0 auto;
+}
+
+.photo-box figcaption {
+  position: absolute;
+  right: 0;
+  bottom: 8px;
+  left: 0;
+  text-align: center;
+  font-size: 1rem;
+  color: var(--white);
+}
+
+#gallery {
+  padding: 1em;
+  display: grid;
+  gap: 0.8em;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-auto-rows: 75px;
+  grid-auto-flow: dense;
+  background-color: var(--beige);
+  border: var(--maroon) 1px solid;
+  border-radius: 5px;
+}
+
+#gallery figure {
+  position: relative;
+  border: var(--maroon) 3px solid;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.vertical {
+  grid-row: span 2;
+}
+
+.horizontal {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.big {
+  grid-row: span 3;
+  grid-column: span 2;
+}
+
+footer {
+  max-width: 960px;
+  margin: 2em auto;
+  padding: 1em;
+}
+
+footer p {
+  margin: 0 0 0.5em 0;
+  color: var(--maroon);
+  font-weight: 700;
+  text-align: center;
+}
+
+footer a {
+  color: var(--maroon);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.forced_break {
+  content: '\a';
+  white-space: pre;
+}
+
+.d-none {
+  display: none;
+}
+
+.close-button {
+  position: absolute;
+  z-index: 10;
+  top: 12px;
+  right: 12px;
+}
+
+.close-button img {
+  width: 32px;
+  cursor: pointer;
+  filter: brightness(0) invert(0.2);
+  transition: 1s ease;
+}
+
+.close-button img:hover {
+  filter: brightness(0) invert(1);
+}
+
+.arrows {
+  padding: 0 1em;
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  right: 0;
+  bottom: 50%;
+  left: 0;
+}
+
+.arrows img {
+  width: 48px;
+  filter: brightness(0) invert(0.2);
+  transition: 1s ease;
+  cursor: pointer;
+}
+
+.arrows img:hover {
+  filter: brightness(0) invert(1);
+}
+
+/* --------------------------------------------------------
+typography
+------------------------------------------------------------ */
+h1 {
+  margin: 0.7em 0;
+  font-size: 3rem;
+  font-weight: 700;
+  text-align: center;
+  color: var(--maroon);
+}
+
+/* ===========================================================
+Media queries
+=========================================================== */
+/* ----------------------------------------------------------
+breakpoint: 53em
+------------------------------------------------------------*/
+@media (min-width: 53em) {
+  footer {
+    display: flex;
+    justify-content: space-between;
+  }
+}
