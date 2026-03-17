@@ -211,9 +211,6 @@ function renderMyPictures() {
 }
 
 function generateGalleryHTML(picture, i) {
- /* generates HTML code to display photos in the browser
-  adds different classes to the figure element an an onclick function
-  openImage(i) */
   return /* html */ `
     <figure class=${picture.imageClass} onclick="openImage(${i})">
       <img src="${picture.picture}" alt="">
@@ -231,8 +228,6 @@ function openImage(i) {
   dialogBox.classList.remove('d-none');
 }
 
-/* generates HTML Code to display a detailed view of a picture
-returns the value of this code to the function openImage(i) */
 function generatePhotoBoxHTML(i, picture) {
   return /*html*/ `
   <div id="photo-box" class="photo-box"> 
